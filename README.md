@@ -10,7 +10,6 @@ Example of Spring Boot with SpringMVC, JPA...etc
 
 ### 이 예제로 확인하고자 하는 것들
 - H2DB의 셋팅과 remote 접근
-- ORM Entity 기본 설정
 - Hibernate의 Lazy-loading
 - Hibernate 2nd Level cache (w. ehcache)
 - Thymeleaf 기본 사용법
