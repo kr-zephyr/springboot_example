@@ -10,3 +10,8 @@ Example of Spring Boot with SpringMVC, JPA...etc
 - Hibernate의 Lazy-loading
 - Hibernate 2nd Level cache (w. ehcache)
 - Thymeleaf 기본 사용법
+
+### 하나씩 적어가기
+- https://start.spring.io
+- h2db? hsqldb 제작사에서 개발한 java로 작성된 가벼운 embedded rdb. 스프링부트에서 개발용으로 사용하기에 적합하다.
+- 스프링부트 메이븐으로 실행하기 : mvn spring-boot:run
