@@ -13,6 +13,7 @@ Example of Spring Boot with SpringMVC, JPA...etc
 - Hibernate의 Lazy-loading
 - Hibernate 2nd Level cache (w. ehcache)
 - Thymeleaf 기본 사용법
+- RESTful API를 이용한 crud
 
 ### 하나씩 적어가기
 - https://start.spring.io
