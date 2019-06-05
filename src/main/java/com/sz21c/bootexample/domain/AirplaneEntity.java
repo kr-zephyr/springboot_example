@@ -19,7 +19,7 @@ public class AirplaneEntity {
 	private String name;
 	private Integer numberOfEngine;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "manufacture_id")
 	private ManufactureEntity manufactureEntity;
 

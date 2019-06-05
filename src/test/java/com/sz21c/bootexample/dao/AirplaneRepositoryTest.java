@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class AirplaneRepositoryTest {
 	ManufactureRepository manufactureRepository;
 	
 	@Test
+	@Transactional
 	public void test_saveAndRead() {
 		int preSize = airplaneRepository.findAll().size();
 		ManufactureEntity boeing = manufactureRepository.findByName("Boeing");
@@ -32,6 +34,8 @@ public class AirplaneRepositoryTest {
 		List<AirplaneEntity> airplaneEntityList = airplaneRepository.findAll();
 
 		Assert.assertEquals(airplaneEntityList.size(), 2 + preSize);
+		
+		System.out.println("manufacture :: " + airplaneEntityList.get(0).getManufactureEntity().getName());
 	}
 	
 	private ManufactureEntity createTestManufactureBoeing() {
