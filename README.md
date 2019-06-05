@@ -15,6 +15,7 @@ Example of Spring Boot with SpringMVC, JPA...etc
 - Thymeleaf 기본 사용법
 - RESTful API를 이용한 crud
 - QueryDSL 적용
+- @Autowired를 제거해보자
 
 ### 하나씩 적어가기
 - https://start.spring.io
