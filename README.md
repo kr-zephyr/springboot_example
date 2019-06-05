@@ -16,6 +16,7 @@ Example of Spring Boot with SpringMVC, JPA...etc
 - RESTful API를 이용한 crud
 - QueryDSL 적용
 - @Autowired를 제거해보자
+- 로컬 기동 시 DB에 초기값을 넣을 수 있게 하자 
 
 ### 하나씩 적어가기
 - https://start.spring.io
