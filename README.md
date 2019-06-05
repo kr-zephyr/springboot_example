@@ -7,11 +7,11 @@ Example of Spring Boot with SpringMVC, JPA...etc
 ### 이 예제로 볼 수 있는 것들
 - H2DB의 셋팅 (remote 설정은 실패. 현재는 web console만 가능.)
 - ORM Entity 기본 설정
+- Hibernate 2nd Level cache (w. ehcache)
 
 ### 이 예제로 확인하고자 하는 것들
-- H2DB의 셋팅과 remote 접근
+- H2DB의 remote 접근
 - Hibernate의 Lazy-loading
-- Hibernate 2nd Level cache (w. ehcache)
 - Thymeleaf 기본 사용법
 - RESTful API를 이용한 crud
 - QueryDSL 적용
