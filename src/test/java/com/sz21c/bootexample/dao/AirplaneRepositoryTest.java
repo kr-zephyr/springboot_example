@@ -1,6 +1,7 @@
 package com.sz21c.bootexample.dao;
 
 import com.sz21c.bootexample.domain.AirplaneEntity;
+import com.sz21c.bootexample.domain.ManufactureEntity;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,15 +18,25 @@ public class AirplaneRepositoryTest {
 	@Autowired
 	AirplaneRepository airplaneRepository;
 
+	@Autowired
+	ManufactureRepository manufactureRepository;
+	
 	@Test
 	public void test_saveAndRead() {
 		int preSize = airplaneRepository.findAll().size();
-
-		airplaneRepository.save(new AirplaneEntity("B777", 2));
-		airplaneRepository.save(new AirplaneEntity("B747", 4));
+		ManufactureEntity boeing = manufactureRepository.findByName("Boeing");
+		
+		airplaneRepository.save(new AirplaneEntity("B737", 2, boeing != null ? boeing : createTestManufactureBoeing()));
+		airplaneRepository.save(new AirplaneEntity("B787", 2, boeing != null ? boeing : createTestManufactureBoeing()));
 
 		List<AirplaneEntity> airplaneEntityList = airplaneRepository.findAll();
 
 		Assert.assertEquals(airplaneEntityList.size(), 2 + preSize);
+	}
+	
+	private ManufactureEntity createTestManufactureBoeing() {
+		ManufactureEntity boeing = new ManufactureEntity("Boeing", "US");
+		manufactureRepository.save(boeing);
+		return boeing;
 	}
 }

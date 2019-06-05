@@ -25,21 +25,21 @@ public class BootExampleApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
-		airplaneRepository.save(new AirplaneEntity("B777", 2));
-		airplaneRepository.save(new AirplaneEntity("B747", 4));
-
-		List<AirplaneEntity> airplaneEntityList = airplaneRepository.findAll();
-		for(AirplaneEntity airplaneEntity : airplaneEntityList) {
-			System.out.println("[" + airplaneEntity.getId() + "] " + airplaneEntity.getName() + ", has " + airplaneEntity.getNumberOfEngine() + " engines.");
-		}
-
+	public void run(String... args) {
 		manufactureRepository.save(new ManufactureEntity("Boeing", "US"));
 		manufactureRepository.save(new ManufactureEntity("Airbus", "EU"));
 
 		List<ManufactureEntity> manufactureEntitieList = manufactureRepository.findAll();
 		for(ManufactureEntity manufactureEntity : manufactureEntitieList) {
 			System.out.println("[" + manufactureEntity.getId() + "] " + manufactureEntity.getName() + " is in " + manufactureEntity.getCountry());
+		}
+		
+		airplaneRepository.save(new AirplaneEntity("B777", 2, manufactureRepository.findByName("Boeing")));
+		airplaneRepository.save(new AirplaneEntity("B747", 4, manufactureRepository.findByName("Airbus")));
+		
+		List<AirplaneEntity> airplaneEntityList = airplaneRepository.findAll();
+		for(AirplaneEntity airplaneEntity : airplaneEntityList) {
+			System.out.println("[" + airplaneEntity.getId() + "] " + airplaneEntity.getName() + ", has " + airplaneEntity.getNumberOfEngine() + " engines.");
 		}
 	}
 }

@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -20,9 +18,14 @@ public class AirplaneEntity {
 
 	private String name;
 	private Integer numberOfEngine;
+	
+	@ManyToOne
+	@JoinColumn(name = "manufacture_id")
+	private ManufactureEntity manufactureEntity;
 
-	public AirplaneEntity(String name, Integer numberOfEngine) {
+	public AirplaneEntity(String name, Integer numberOfEngine, ManufactureEntity manufactureEntity) {
 		this.name = name;
 		this.numberOfEngine = numberOfEngine;
+		this.manufactureEntity = manufactureEntity;
 	}
 }
